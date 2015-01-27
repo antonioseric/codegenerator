@@ -37,7 +37,7 @@ namespace iCodeGenerator.Generator
 			if(_CustomValue != null)
 			{
 				client.CustomValues = _CustomValue;	
-			}			
+			}
 			foreach(var fileInfo in directoryInfo.GetFiles())
 			{
 				client.StartDelimiter = originalSd;
@@ -61,6 +61,10 @@ namespace iCodeGenerator.Generator
 					Debug.WriteLine(e);
 				}
 			}
+
+            client.StartDelimiter = originalSd;
+            client.EndingDelimiter = originalEd;
+
 			CompleteNotifier(new EventArgs());
 		}
 	}
