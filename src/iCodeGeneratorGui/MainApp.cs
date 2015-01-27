@@ -159,6 +159,11 @@ namespace iCodeGenerator.iCodeGeneratorGui
             GenerateFiles();
         }
 
+        private void SelectTemplatesDirectoryClick(object sender, EventArgs e)
+        {
+            SelectTemplatesDirectory();
+        }
+
 		DirectorySelectionWindow _selectionWindow;
 		private void SelectTemplatesDirectory()
 		{

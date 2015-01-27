@@ -31,7 +31,7 @@
     <ManifestCertificateThumbprint>7A00BC547B4D7131B665454A7BE4970D09D748BF</ManifestCertificateThumbprint>
     <ManifestKeyFile>iCodeGeneratorGui_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <PublishUrl>C:\Projects\builds\icodegenerator\icodegenerator-20131224-0945\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -314,7 +314,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>copy $(ProjectDir)*.ico $(TargetDir)
-copy $(ProjectDir)DataTypeMapping.xml $(TargetDir)</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)*.ico" "$(TargetDir)"
+copy "$(ProjectDir)DataTypeMapping.xml" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
