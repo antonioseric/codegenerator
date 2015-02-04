@@ -7,7 +7,7 @@
     <ProjectGuid>{0BA9AB83-7E8B-4E80-8A79-6F450AFD5336}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>icode64.ico</ApplicationIcon>
+    <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>iCodeGeneratorGui</AssemblyName>
@@ -175,7 +175,7 @@
     <Compile Include="AboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AssemblyInfo.cs">
+    <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FolderEventArgs.cs" />
@@ -236,12 +236,12 @@
     <Compile Include="UpdatesWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Content Include="icustom.ico" />
-    <Content Include="idb.ico" />
-    <Content Include="igen.ico" />
-    <Content Include="iresult.ico" />
-    <Content Include="isnippet.ico" />
-    <Content Include="itemplate.ico" />
+    <Content Include="icons\icustom.ico" />
+    <Content Include="icons\idb.ico" />
+    <Content Include="icons\igen.ico" />
+    <Content Include="icons\iresult.ico" />
+    <Content Include="icons\isnippet.ico" />
+    <Content Include="icons\itemplate.ico" />
     <EmbeddedResource Include="AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,10 +275,10 @@
     </EmbeddedResource>
     <Content Include="App.ico" />
     <Content Include="DataTypeMapping.xml" />
-    <Content Include="icode.ico" />
-    <Content Include="icode64.ico" />
-    <Content Include="iCodeLogo.ico" />
-    <Content Include="iCodeLogo16.ico" />
+    <Content Include="icons\icode.ico" />
+    <Content Include="icons\icode64.ico" />
+    <Content Include="icons\iCodeLogo.ico" />
+    <Content Include="icons\iCodeLogo16.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -314,7 +314,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>copy "$(ProjectDir)*.ico" "$(TargetDir)"
+    <PostBuildEvent>rem copy "$(ProjectDir)icons\*.ico" "$(TargetDir)"
 copy "$(ProjectDir)DataTypeMapping.xml" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

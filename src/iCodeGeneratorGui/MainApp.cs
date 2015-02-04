@@ -53,7 +53,7 @@ namespace iCodeGenerator.iCodeGeneratorGui
             _dnf = new DatabaseNavigationForm();
             _dnf.Text = "Database Navigation";
             _dnf.Show(dockPanel, DockState.DockLeft);
-            _dnf.Icon = Icon.ExtractAssociatedIcon(@"idb.ico");
+            _dnf.Icon = global::iCodeGenerator.iCodeGeneratorGui.Properties.Resources.idb;
             _dnf.TableSelected += DnfTableSelected;
             _dnf.DatabaseSelected += DnfDatabaseSelected;
             _dnf.ColumnSelected += DnfColumnSelected;
@@ -63,31 +63,31 @@ namespace iCodeGenerator.iCodeGeneratorGui
             _sf.Text = "Snippets";
             _sf.SnippetSelected += SfSnippetSelected;
             _sf.Show(dockPanel, DockState.DockLeftAutoHide);
-            _sf.Icon = Icon.ExtractAssociatedIcon(@"isnippet.ico");
+            _sf.Icon = global::iCodeGenerator.iCodeGeneratorGui.Properties.Resources.isnippet;
             _sf.HideOnClose = true;
 
             _df = new DocumentForm();
             _df.Text = "Template";
             _df.Show(dockPanel, DockState.Document);
-            _df.Icon = Icon.ExtractAssociatedIcon(@"itemplate.ico");
+            _df.Icon = global::iCodeGenerator.iCodeGeneratorGui.Properties.Resources.itemplate;
             _df.HideOnClose = true;
 
             _rf = new ResultForm();
             _rf.Text = "Results";
             _rf.Show(dockPanel, DockState.Document);
-            _rf.Icon = Icon.ExtractAssociatedIcon(@"iresult.ico");
+            _rf.Icon = global::iCodeGenerator.iCodeGeneratorGui.Properties.Resources.iresult;
             _rf.HideOnClose = true;
 
             _pf = new PropertiesForm();
             _pf.Text = "Properties";
             _pf.Show(dockPanel, DockState.DockRight);
-            _pf.Icon = Icon.ExtractAssociatedIcon(@"igen.ico");
+            _pf.Icon = global::iCodeGenerator.iCodeGeneratorGui.Properties.Resources.igen;
             _pf.HideOnClose = true;
 
             _cvf = new CustomValuesForm();
             _cvf.Text = "Custom Values";
             _cvf.Show(dockPanel, DockState.DockRight);
-            _cvf.Icon = Icon.ExtractAssociatedIcon(@"icustom.ico");
+            _cvf.Icon = global::iCodeGenerator.iCodeGeneratorGui.Properties.Resources.icustom;
             _cvf.HideOnClose = true;
         }
 
