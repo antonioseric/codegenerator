@@ -13,6 +13,8 @@ namespace iCodeGenerator.Generator
 	{
 		private IDictionary _CustomValue;
 
+        public const string TEMPLATE_EXTENSION = ".icode";
+
 		public IDictionary CustomValue
 		{
 			get { return _CustomValue; }
@@ -38,7 +40,9 @@ namespace iCodeGenerator.Generator
 			{
 				client.CustomValues = _CustomValue;	
 			}
-			foreach(var fileInfo in directoryInfo.GetFiles())
+
+
+			foreach(var fileInfo in directoryInfo.GetFiles("*.*"+TEMPLATE_EXTENSION,SearchOption.AllDirectories))
 			{
 				client.StartDelimiter = originalSd;
 				client.EndingDelimiter = originalEd;
@@ -49,9 +53,16 @@ namespace iCodeGenerator.Generator
 				client.StartDelimiter = String.Empty;
 				client.EndingDelimiter = String.Empty;
 				var filename = client.Parse(table,fileInfo.Name);
+
+                filename = filename.Remove(filename.IndexOf(TEMPLATE_EXTENSION));
+                var outputWorkDirectory = Path.Combine(outputDir, fileInfo.DirectoryName.Replace(inputDir + Path.DirectorySeparatorChar, String.Empty));
+
+                if (Directory.Exists(outputWorkDirectory) == false)
+                    Directory.CreateDirectory(outputWorkDirectory);
+
 				try
 				{
-					var sw = new StreamWriter(outputDir + Path.DirectorySeparatorChar + filename);
+                    var sw = new StreamWriter(outputWorkDirectory + Path.DirectorySeparatorChar + filename);
 					sw.Write(codeGenerated);
 					sw.Flush();
 					sw.Close();

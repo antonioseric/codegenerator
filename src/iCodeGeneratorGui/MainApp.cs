@@ -307,7 +307,7 @@ namespace iCodeGenerator.iCodeGeneratorGui
         private void openTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
-            ofd.Filter = @"All files (*.*)|*.*";
+            ofd.Filter = String.Format(@"iCodeGenerator Templates (*{0})|*{0}", FileGenerator.TEMPLATE_EXTENSION);
             ofd.RestoreDirectory = true;
             if (ofd.ShowDialog(this) == DialogResult.OK)
             {
@@ -338,19 +338,29 @@ namespace iCodeGenerator.iCodeGeneratorGui
             if (_TemplateFile != null)
                 SaveFile(_TemplateFile, _df.ContentText);
             else
-                _TemplateFile = SaveAsFile(_TemplateFile, _df.ContentText);
+                _TemplateFile = SaveAsFile(_TemplateFile, _df.ContentText, true);
         }
 
         private void saveAsTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _TemplateFile = SaveAsFile(null, _df.ContentText);
+            _TemplateFile = SaveAsFile(null, _df.ContentText, true);
         }
 
-        private string SaveAsFile(string filename, string contentText)
+        private string SaveAsFile(string filename, string contentText, bool isTemplateFile)
         {
             Stream stream;
             var sfd = new SaveFileDialog();
             sfd.RestoreDirectory = true;
+            if (isTemplateFile)
+            {
+                sfd.Filter = String.Format(@"iCodeGenerator Templates (*{0})|*{0}", FileGenerator.TEMPLATE_EXTENSION);
+                sfd.DefaultExt = FileGenerator.TEMPLATE_EXTENSION;
+                sfd.AddExtension = true;
+            }
+            else
+            {
+                sfd.Filter = @"All files (*.*)|*.*";
+            }
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 filename = sfd.FileName;
@@ -370,7 +380,7 @@ namespace iCodeGenerator.iCodeGeneratorGui
 
         private void saveResultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveAsFile(null, _rf.ContentText);
+            SaveAsFile(null, _rf.ContentText, false);
         }
 
         private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
