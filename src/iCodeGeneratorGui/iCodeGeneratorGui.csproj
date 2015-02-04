@@ -274,7 +274,9 @@
       <DependentUpon>UpdatesWindow.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="App.ico" />
-    <Content Include="DataTypeMapping.xml" />
+    <Content Include="DataTypeMapping.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="icons\icode.ico" />
     <Content Include="icons\icode64.ico" />
     <Content Include="icons\iCodeLogo.ico" />
@@ -315,6 +317,6 @@
     <PreBuildEvent>
     </PreBuildEvent>
     <PostBuildEvent>rem copy "$(ProjectDir)icons\*.ico" "$(TargetDir)"
-copy "$(ProjectDir)DataTypeMapping.xml" "$(TargetDir)"</PostBuildEvent>
+rem copy "$(ProjectDir)DataTypeMapping.xml" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
