@@ -22,7 +22,7 @@ namespace iCodeGenerator.iCodeGeneratorGui
         {
             InitializeComponent();
             InitializeControls();
-            CheckForUpdates();
+            //CheckForUpdates();
         }
 
         private void CheckForUpdates()
