@@ -34,8 +34,8 @@ namespace iCodeGenerator.Generator
 		{
 			var directoryInfo = new DirectoryInfo(inputDir);
 			var client = new Client();
-		    var originalSd = client.StartDelimiter;
-		    var originalEd = client.EndingDelimiter;
+		    //var originalSd = client.StartDelimiter;
+		    //var originalEd = client.EndingDelimiter;
 			if(_CustomValue != null)
 			{
 				client.CustomValues = _CustomValue;	
@@ -44,8 +44,8 @@ namespace iCodeGenerator.Generator
 
 			foreach(var fileInfo in directoryInfo.GetFiles("*.*"+TEMPLATE_EXTENSION,SearchOption.AllDirectories))
 			{
-				client.StartDelimiter = originalSd;
-				client.EndingDelimiter = originalEd;
+			    client.StartDelimiter = "{";//originalSd;
+			    client.EndingDelimiter = "}";//originalEd;
 				var sr = File.OpenText(fileInfo.FullName);
 				var fileContent = sr.ReadToEnd();
 				sr.Close();
